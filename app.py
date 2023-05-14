@@ -10,11 +10,10 @@ from functionforDownloadButtons import download_button
 import os
 import json
 
-image = Image.open('docbot.jpg')
+
 
 st.set_page_config(
     page_title="DocKeyword",
-    page_icon=image,
 )
 
 
