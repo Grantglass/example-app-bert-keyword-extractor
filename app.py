@@ -10,9 +10,11 @@ from functionforDownloadButtons import download_button
 import os
 import json
 
+image = Image.open('docbot.jpg')
+
 st.set_page_config(
-    page_title="BERT Keyword Extractor",
-    page_icon="🎈",
+    page_title="DocKeyword",
+    page_icon=image,
 )
 
 
@@ -35,8 +37,8 @@ _max_width_()
 c30, c31, c32 = st.columns([2.5, 1, 3])
 
 with c30:
-    # st.image("logo.png", width=400)
-    st.title("🔑 BERT Keyword Extractor")
+    # st.image("docbot.jpg", width=400)
+    st.title("DOCKeyword Extractor")
     st.header("")
 
 
@@ -45,7 +47,7 @@ with st.expander("ℹ️ - About this app", expanded=True):
 
     st.write(
         """     
--   The *BERT Keyword Extractor* app is an easy-to-use interface built in Streamlit for the amazing [KeyBERT](https://github.com/MaartenGr/KeyBERT) library from Maarten Grootendorst!
+-   The *DOCKeyword Extractor* app is an easy-to-use interface built in Streamlit.
 -   It uses a minimal keyword extraction technique that leverages multiple NLP embeddings and relies on [Transformers] (https://huggingface.co/transformers/) 🤗 to create keywords/keyphrases that are most similar to a document.
 	    """
     )
