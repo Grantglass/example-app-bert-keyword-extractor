@@ -18,7 +18,7 @@ st.set_page_config(
 page_icon=image,
 )
 st.image(image)
-st.title("DocKeywords")
+
 
 def _max_width_():
     max_width_str = f"max-width: 1400px;"
