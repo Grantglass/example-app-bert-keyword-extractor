@@ -49,7 +49,7 @@ with st.expander("ℹ️ - About this app", expanded=True):
 
     st.write(
         """     
--   The *DOCKeyword Extractor* app is an easy-to-use interface built in Streamlit.
+-   The *DOCKeyBot* app is an easy-to-use interface built in Streamlit.
 -   It uses a minimal keyword extraction technique that leverages multiple NLP embeddings and relies on [Transformers] (https://huggingface.co/transformers/) 🤗 to create keywords/keyphrases that are most similar to a document.
 	    """
     )
