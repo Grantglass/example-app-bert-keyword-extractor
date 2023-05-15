@@ -14,7 +14,7 @@ from PIL import Image
 image = Image.open('docbot.jpg')
 
 st.set_page_config(
-    page_title="DocKeyword",
+    page_title="DocKeyBot",
 page_icon=image,
 )
 st.image(image)
@@ -40,7 +40,7 @@ c30, c31, c32 = st.columns([2.5, 1, 3])
 
 with c30:
     # st.image("docbot.jpg", width=400)
-    st.title("DOCKeyword Extractor")
+    st.title("DOCKeyBot")
     st.header("")
 
 
