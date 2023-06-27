@@ -57,7 +57,7 @@ with st.expander("ℹ️ - About this app", expanded=True):
     st.markdown("")
 
 st.markdown("")
-st.markdown("## **📌 Paste document here, just select all on your document and paste in here **")
+st.markdown("## **📌 Paste your technical document here **")
 with st.form(key="my_form"):
 
 
