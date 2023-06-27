@@ -49,15 +49,15 @@ with st.expander("ℹ️ - About this app", expanded=True):
 
     st.write(
         """     
--   The *DOCKeyBot* app is an easy-to-use keyword generator in Streamlit.
--   It uses a minimal keyword extraction technique that leverages multiple NLP embeddings and relies on [Transformers] (https://huggingface.co/transformers/) 🤗 to create keywords/keyphrases that are most similar to a document.
+-   The *DOCKeyBot* app is an easy-to-use keyword generator for technical writers developed by Grant Glass.
+-   It uses a keyword extraction technique that leverages multiple NLP embeddings and relies on [Transformers] (https://huggingface.co/transformers/) 🤗 to create keywords/keyphrases that are generated from the hidden patterns in your technical documents.
 	    """
     )
 
     st.markdown("")
 
 st.markdown("")
-st.markdown("## **📌 Paste document **")
+st.markdown("## **📌 Paste document here, just select all on your document and paste in here **")
 with st.form(key="my_form"):
 
 
@@ -66,7 +66,7 @@ with st.form(key="my_form"):
         ModelType = st.radio(
             "Choose your model",
             ["DistilBERT (Default)", "Flair"],
-            help="At present, you can choose between 2 models (Flair or DistilBERT) to embed your text. More to come!",
+            help="At present, you can choose between 2 models (Flair or DistilBERT) to generate keywords, they use slightly different methods. DistilBERT is better for longer documents and Flair is better for shorter documents",
         )
 
         if ModelType == "Default (DistilBERT)":
@@ -88,17 +88,17 @@ with st.form(key="my_form"):
         top_N = st.slider(
             "# of results",
             min_value=1,
-            max_value=30,
+            max_value=10,
             value=10,
-            help="You can choose the number of keywords/keyphrases to display. Between 1 and 30, default number is 10.",
+            help="You can choose the number of keywords/keyphrases to display. Between 1 and 10, the default number is 10.",
         )
         min_Ngrams = st.number_input(
             "Minimum Ngram",
             min_value=1,
             max_value=4,
-            help="""The minimum value for the ngram range.
+            help="""The minimum value for the keyphrase_ngram_range. How many word phrases do you want 1 is a one-word phrase, 2 is a two-word phrase, and so on.
 
-*Keyphrase_ngram_range* sets the length of the resulting keywords/keyphrases.
+*Keyphrase_ngram_range* sets the length of the resulting keywords/keyphrases. 1 is a one-word phrase, 2 is a two-word phrase, and so on.
 
 To extract keyphrases, simply set *keyphrase_ngram_range* to (1, 2) or higher depending on the number of words you would like in the resulting keyphrases.""",
             # help="Minimum value for the keyphrase_ngram_range. keyphrase_ngram_range sets the length of the resulting keywords/keyphrases. To extract keyphrases, simply set keyphrase_ngram_range to (1, # 2) or higher depending on the number of words you would like in the resulting keyphrases.",
@@ -109,7 +109,7 @@ To extract keyphrases, simply set *keyphrase_ngram_range* to (1, 2) or higher de
             value=2,
             min_value=1,
             max_value=4,
-            help="""The maximum value for the keyphrase_ngram_range.
+            help="""The minimum value for the keyphrase_ngram_range How many word phrases do you want 1 is a one-word phrase, 2 is a two-word phrase, and so on.
 
 *Keyphrase_ngram_range* sets the length of the resulting keywords/keyphrases.
 
@@ -118,13 +118,13 @@ To extract keyphrases, simply set *keyphrase_ngram_range* to (1, 2) or higher de
 
         StopWordsCheckbox = st.checkbox(
             "Remove stop words",
-            help="Tick this box to remove stop words from the document (currently English only)",
+            help="Tick this box to remove stop words (which are common words like a, the, and) from the document (currently English only)",
         )
 
         use_MMR = st.checkbox(
             "Use MMR",
             value=True,
-            help="You can use Maximal Margin Relevance (MMR) to diversify the results. It creates keywords/keyphrases based on cosine similarity. Try high/low 'Diversity' settings below for interesting variations.",
+            help="You can use Maximal Margin Relevance (MMR) to diversify the results. It makes the AI more creative Try high/low 'Diversity' settings below for interesting variations.",
         )
 
         Diversity = st.slider(
@@ -133,7 +133,7 @@ To extract keyphrases, simply set *keyphrase_ngram_range* to (1, 2) or higher de
             min_value=0.0,
             max_value=1.0,
             step=0.1,
-            help="""The higher the setting, the more diverse the keywords.
+            help="""The higher the setting, the more diverse the keywords and creative the AI.
             
 Note that the *Keyword diversity* slider only works if the *MMR* checkbox is ticked.
 
