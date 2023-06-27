@@ -50,7 +50,7 @@ with st.expander("ℹ️ - About this app", expanded=True):
     st.write(
         """     
 -   The *DOCKeyBot* app is an easy-to-use keyword generator for technical writers developed by Grant Glass.
--   It uses a keyword extraction technique that leverages multiple NLP embeddings and relies on [Transformers] (https://huggingface.co/transformers/) 🤗 to create keywords/keyphrases that are generated from the hidden patterns in your technical documents.
+-   It uses a keyword extraction technique that leverages NLP and AI to create keywords/keyphrases from the hidden patterns in your technical documents.
 	    """
     )
 
