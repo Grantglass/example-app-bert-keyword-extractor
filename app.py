@@ -11,7 +11,7 @@ import os
 import json
 
 from PIL import Image
-image = Image.open('doc_bot_app_icon.svg')
+image = Image.open('doc_bot_app_icon.jpg')
 
 st.set_page_config(
     page_title="DocKeyBot",
